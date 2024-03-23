@@ -1,13 +1,5 @@
 <template>
 	<div>
-		<Teleport to="body">
-			<div
-				class="sticky top-0 left-0 w-full h-[100dvh] bg-FrameTwo flex items-center justify-center z-50"
-				v-if="Loading"
-			>
-				<p class="text-white">Loading</p>
-			</div>
-		</Teleport>
 		<NuxtLayout>
 			<div>
 				<NuxtPage />
@@ -20,9 +12,6 @@
 
 <script setup>
 	const nuxtApp = useNuxtApp();
-	const Loading = ref(true);
-	nuxtApp.hook("page:start", () => (Loading.value = true));
-	nuxtApp.hook("page:finish", () => (Loading.value = false));
 
 	useHead({
 		htmlAttrs: {
